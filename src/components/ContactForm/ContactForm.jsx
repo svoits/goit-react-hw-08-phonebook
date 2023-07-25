@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { selectIsLoading, selectVisibleContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import {
+  selectIsLoading,
+  selectVisibleContacts,
+} from 'redux/contacts/selectors';
+import { addContact } from 'redux/contacts/operations';
 import {
   Button,
   Input,
@@ -78,8 +80,4 @@ export const ContactForm = () => {
       </StyledForm>
     </Formik>
   );
-};
-
-ContactForm.propTypes = {
-  onSubmit: PropTypes.func,
 };
