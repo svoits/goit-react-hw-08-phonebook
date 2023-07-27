@@ -5,7 +5,7 @@ export const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   width: 600px;
-  margin: 50px auto 0;
+  margin: 0 auto;
 `;
 
 export const ContactsContainer = styled.div`

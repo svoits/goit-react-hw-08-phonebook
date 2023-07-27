@@ -7,6 +7,7 @@ import { PrivateRoute } from 'components/PrivateRoute';
 import { RestrictedRoute } from 'components/RestrictedRoute';
 import { refreshUser } from 'redux/auth/operations';
 import { useAuth } from 'hooks';
+import { MainContainer } from './App.styled';
 
 const Home = lazy(() => import('pages/Home/Home'));
 const Contacts = lazy(() => import('pages/Contacts/Contacts'));
@@ -24,7 +25,7 @@ export const App = () => {
   return isRefreshing ? (
     <p>Refreshing user...</p>
   ) : (
-    <>
+    <MainContainer>
       <ToastContainer />
       <Routes>
         <Route path="/" element={<Layout />}>
@@ -50,6 +51,6 @@ export const App = () => {
         </Route>
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
-    </>
+    </MainContainer>
   );
 };
