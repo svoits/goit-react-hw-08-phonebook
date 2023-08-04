@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { List, ListItem, Button, NoContacts } from './ContactList.styled';
 import {
@@ -6,7 +6,7 @@ import {
   selectIsLoading,
   selectVisibleContacts,
 } from 'redux/contacts/selectors';
-import { deleteContact, fetchContacts } from 'redux/contacts/operations';
+import { deleteContact } from 'redux/contacts/operations';
 import { Loader } from 'components/Loader';
 
 export const ContactList = () => {
@@ -15,10 +15,6 @@ export const ContactList = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const [contactToDeleteId, setContactToDeleteId] = useState(null);
-
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
 
   if (!visibleContacts?.length && !error & !isLoading) {
     return <NoContacts>No contacts added yet.</NoContacts>;
