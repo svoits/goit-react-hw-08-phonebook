@@ -26,20 +26,20 @@ export const ContactList = () => {
 
   return (
     <List>
-      {visibleContacts.map(({ id, name, number }, idx) => (
-        <ListItem key={id}>
+      {visibleContacts.map(({ _id, name, number }, idx) => (
+        <ListItem key={_id}>
           <div>{idx + 1}.</div>
           {name}: {number}
           <Button
             onClick={() => {
-              setContactToDeleteId(id);
-              dispatch(deleteContact(id)).then(() => {
+              setContactToDeleteId(_id);
+              dispatch(deleteContact(_id)).then(() => {
                 setContactToDeleteId(null);
               });
             }}
-            disabled={isLoading && contactToDeleteId === id}
+            disabled={isLoading && contactToDeleteId === _id}
           >
-            {contactToDeleteId === id && <Loader />}
+            {contactToDeleteId === _id && <Loader />}
             Delete
           </Button>
         </ListItem>

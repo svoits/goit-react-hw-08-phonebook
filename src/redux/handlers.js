@@ -30,7 +30,7 @@ export const handleAddContactFulfilled = (state, action) => {
 export const handleDeleteContactFulfilled = (state, action) => {
   state.isLoading = false;
   state.error = null;
-  const index = state.items.findIndex(item => item.id === action.payload.id);
+  const index = state.items.findIndex(item => item._id === action.payload);
   state.items.splice(index, 1);
 };
 
